@@ -126,7 +126,7 @@ extern "C" {
     fn wlc_handle_from_wl_surface_resource(resource: *const wl_resource) -> uintptr_t;
 
     #[cfg(feature="wlc-wayland")]
-    fn wlc_handle_from_wl_output_resource(resource: *const wl_resource) -> uintptr_t;
+    pub fn wlc_handle_from_wl_output_resource(resource: *const wl_resource) -> uintptr_t;
 
     #[cfg(feature="wlc-wayland")]
     fn wlc_view_get_surface(view: uintptr_t) -> uintptr_t;
@@ -166,13 +166,6 @@ impl From<WlcView> for WlcOutput {
 impl From<WlcOutput> for WlcView {
     fn from(output: WlcOutput) -> Self {
         WlcView(output.0)
-    }
-}
-
-#[cfg(feature="wlc-wayland")]
-impl Into<WlcOutput> for wl_resource {
-    fn into(self) -> WlcOutput {
-        unsafe { WlcOutput(wlc_handle_from_wl_output_resource(&self)) }
     }
 }
 

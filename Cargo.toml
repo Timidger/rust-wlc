@@ -12,9 +12,8 @@ authors = ["Snirk Immington <snirk.immington@gmail.com>", "Timidger <apragmaticp
 wlc-wayland = ["wayland-sys"]
 
 [dependencies]
-libc = "0.2.*"
 bitflags = "0.7.*"
-wayland-sys = { version = "^0.6.0", features = ["server", "client"], git = "https://github.com/Timidger/wayland-client-rs"}
+wayland-sys = { version = "^0.6.0", features = ["server", "client"], git = "https://github.com/Timidger/wayland-client-rs", optional=true}
 libc = "^0.2.0"
 wayland-server = { version = "0.6.0-alpha", features = ["wl-desktop_shell"], path = "/home/timidger/tmp/wayland-client-rs/wayland-server" }
 wayland-client = { version = "^0.6.0", features = ["wl-desktop_shell"], git = "https://github.com/Timidger/wayland-client-rs/" }
