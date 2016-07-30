@@ -27,12 +27,12 @@ use super::types::{Geometry, ResizeEdge, Point, Size, ViewType, ViewState};
 #[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 /// Represents a handle to a wlc view.
 ///
-pub struct WlcView(uintptr_t);
+pub struct WlcView(pub uintptr_t);
 
 #[repr(C)]
 #[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 /// Represents a handle to a wlc output.
-pub struct WlcOutput(uintptr_t);
+pub struct WlcOutput(pub uintptr_t);
 
 // Applies to both handles
 #[link(name = "wlc")]
